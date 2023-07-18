@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  color: #000;
+}
+
+button {
+  cursor: pointer;
+}
+
+.each-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.remove {
+  background-color: red;
+  color: #fff;
+}
