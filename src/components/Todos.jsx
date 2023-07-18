@@ -10,9 +10,22 @@ export default function Todos() {
 
   // console.log(todos?.map(todo => todo));
 
+  // remove a todo item
   const handleRemoveTodo = todoId => {
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId))
   }
+
+  // toggle the "completed" property
+  const handleToggleTodo = todoId => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo => {
+        if (todo.id === todoId) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      })
+    );
+  };
 
   return (
     <div>
@@ -26,7 +39,7 @@ export default function Todos() {
         onChange={handleInputChange}
         placeholder="Enter a new item name"
       />
-      <button onClick={() => handleAddTodo(setTodos)}>Add a Todo</button>
+      <button className='add-todo' onClick={() => handleAddTodo(setTodos)}>Add a Todo</button>
 
       <ul>
         {
@@ -35,6 +48,7 @@ export default function Todos() {
               key={todo.id}
               eachTodo={todo}
               handleRemove={handleRemoveTodo}
+              handleToggle={handleToggleTodo} // Pass the handleToggleTodo function
             />
           )
         }

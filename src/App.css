@@ -8,6 +8,10 @@ button {
   cursor: pointer;
 }
 
+.add-todo {
+  margin-bottom: 80px;
+}
+
 .each-todo {
   display: flex;
   justify-content: center;
